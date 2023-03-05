@@ -13,11 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('types', function (Blueprint $table) {
-            $table->id();
-            $table->string('name',50);
-            $table->string('slug', 50)->unique;
-            $table->timestamps();
+        Schema::table('posts', function (Blueprint $table) {
+            // PRIMA CREIAMO LA COLONNA
+            $table->unsignedBigInteger('type_id')->nullable()->after('id');
+
+            // DOPO CREO LA FOREIGN KEY
+            $table->foreign('type_id')->references('id')->on('types')->onDelete('set null');
+
         });
     }
 
@@ -28,6 +30,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('types');
+        Schema::table('posts', function (Blueprint $table) {
+            //
+        });
     }
 };
