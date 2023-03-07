@@ -26,7 +26,8 @@ class StorePostRequest extends FormRequest
         return [
             'title' => ['required', 'unique:posts', 'max:150'],
             'content' => ['nullable'],
-            'author' => ['nullable']
+            'author' => ['nullable'],
+            'type_id' => ['nullable', 'exists:types,id'],
         ];
     }
 

@@ -29,7 +29,18 @@
                </div>
 
                <div class="form-group">
-                 <label class="control-label">
+                <label class="control-label">Tipo</label>
+                <select class="form-control" name="type_id" id="type_id">
+                    <option value="">Seleziona un tipo</option>
+                    @foreach($types as $type)
+                    <option value="{{$type->$id}}">{{$type->name}}</option> 
+                    @endforeach
+              
+                </select>
+               </div>
+
+               <div class="form-group">
+                 <label class="control-label"> 
                     Contenuto
                  </label>
              

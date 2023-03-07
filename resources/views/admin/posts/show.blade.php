@@ -11,6 +11,7 @@
         <div class="col-12">
             <p><strong>Slug:</strong>{{$post->slug}}</p>
             <p><strong>Autore:</strong>{{$post->author}}</p>
+            <p><strong>Tipo:</strong>{{$post->type ? $post->type->name : 'Senza categoria' }}</p>
             <label class="d-block"><strong>Riassunto:</strong></label>
             <p>{{$post->excerpt}}</p>
             <label class="d-block"><strong>Contenuto:</strong></label>
@@ -20,4 +21,4 @@
     </div>
      
 </div>
-@endsection
+@endsection 
