@@ -35,7 +35,7 @@
                         </a>
                         <a href="{{route('admin.posts.edit', $post-> slug)}}" title="Modifica post" class="btn btn-warning"><i class="fas fa-edit"></i></a>
 
-                 <form class="d-inline-block" action="{{ route('admin.posts.destroy, $post->slug)}}" method="POST">
+                 <form class="d-inline-block" action="{{ route('admin.posts.destroy', $post->slug)}}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger">
