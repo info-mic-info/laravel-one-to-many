@@ -28,10 +28,17 @@ use App\Http\Controllers\Admin\TypeController as TypeController;
 
 // Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
+
+
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
 Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function(){
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('posts', PostController::class)->parameters(['posts'=> 'post:slug']);
-    Route::resourse('/types', TypeController::class)->parameters(['types'=>'type:slug']);
+    Route::resource('types', TypeController::class)->parameters(['types'=>'type:slug']);
 });
 
  
